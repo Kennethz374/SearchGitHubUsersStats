@@ -62,6 +62,8 @@ const Item = ({ icon, label, value, color }) => {
 	);
 };
 
+//=============for styling=================
+
 const Wrapper = styled.section`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
