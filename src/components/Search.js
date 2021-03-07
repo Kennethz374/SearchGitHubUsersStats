@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { MdSearch } from "react-icons/md";
 import { GithubContext, useGlobalContext } from "../context/context";
 const Search = () => {
-	const { requests, error } = useGlobalContext();
+	const { requests, error, searchUser, isLoading } = useGlobalContext();
 	const [user, setUser] = useState("");
-	//get things from global
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (user) {
 			// setUser(""); Optional
+			searchUser(user);
 		}
 	};
 	return (
@@ -29,7 +29,9 @@ const Search = () => {
 							value={user}
 							onChange={(e) => setUser(e.target.value)}
 						/>
-						{requests > 0 && <button type="submit">Search</button>}
+						{requests > 0 && !isLoading && (
+							<button type="submit">Search</button>
+						)}
 					</div>
 				</form>
 				<h3>request : {requests} / 60</h3>
