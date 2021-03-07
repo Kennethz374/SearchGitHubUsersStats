@@ -40,7 +40,7 @@ const GithubProvider = ({ children }) => {
 
 	const searchUser = async (user) => {
 		toggleError();
-		//setloading(true)
+		setIsLoading(true);
 		const response = await axios(`${rootUrl}/users/${user}`).catch((err) =>
 			console.log(err)
 		);
@@ -50,6 +50,8 @@ const GithubProvider = ({ children }) => {
 		} else {
 			toggleError(true, "there is no user with that user name!!!");
 		}
+		checkRequests();
+		setIsLoading(false);
 	};
 
 	useEffect(() => {
