@@ -35,7 +35,6 @@ const Repos = () => {
 		})
 		.slice(0, 5);
 
-	// console.log(mostPopular);
 	// stars, forks
 	let { stars, forks } = repos.reduce(
 		(total, item) => {
