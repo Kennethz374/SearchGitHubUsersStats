@@ -1,8 +1,24 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
-const PrivateRoute = () => {
-  return <h2>private route component</h2>;
+const PrivateRoute = ({ children, ...rest }) => {
+	const {
+		isAuthenticated,
+		loginWithRedirect,
+		logout,
+		user,
+		isLoading,
+	} = useAuth0();
+	const isUser = isAuthenticated && user;
+
+	return (
+		<Route
+			{...rest}
+			render={() => {
+				return isUser ? children : <Redirect to="/login" />;
+			}}
+		></Route>
+	);
 };
 export default PrivateRoute;
