@@ -70,9 +70,7 @@ const GithubProvider = ({ children }) => {
 		setIsLoading(false);
 	};
 
-	useEffect(() => {
-		checkRequests();
-	}, []);
+	useEffect(checkRequests(), []);
 
 	return (
 		<GithubContext.Provider
