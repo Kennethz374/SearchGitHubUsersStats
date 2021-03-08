@@ -1,3 +1,9 @@
+# hosting on https://kenneth-github-user.netlify.app/login
+
+## A simple application that allows user to search specific github users status
+
+# Stacks: fusion chart, React.js , auth0
+
 ## Gihthub API
 
 - [Root Endpoint](https://api.github.com)
